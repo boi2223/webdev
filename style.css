@@ -22,7 +22,7 @@ nav {
 
 header,
 nav {
-   padding: 10px 0;
+   padding: 10px 270px;
 }
 
 a {
@@ -41,7 +41,3 @@ a {
 }
 
 
-
-nav{
-   text-align: center;
-}
