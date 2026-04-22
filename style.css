@@ -17,20 +17,28 @@ header p {
    margin: 0;
 }
 
-nav {
-   border-bottom: 1px solid #dbe4f4;
-}
-
-header,
-nav {
-   padding: 10px 270px;
-}
-
 a {
    text-decoration: none;
 }
 
 
+/* allineamento nav a .card*/
+
+nav {
+   background-color: #ffffff;
+    border-bottom: 1px solid #f4dbe9; /* Questa linea ora attraversa tutto lo schermo */
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center; /* Centra il contenuto interno */
+}
+
+
+nav .nav-content {
+    width: 60%; /* Stessa larghezza delle card */
+    display: flex;
+    gap: 20px;
+}
 
 .card {
    background-color: #FEFFFF;
@@ -43,3 +51,20 @@ a {
 }
 
 
+
+
+
+.photo-grid { 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Crea 2 colonne di uguale larghezza */
+    gap: 16px; /* Spazio (margine) tra le immagini, sia orizzontale che verticale */
+    margin-top: 20px; /* Un po' di spazio sopra la galleria */
+}
+img {
+    width: 100%; /* L'immagine occupa tutto lo spazio della sua cella di griglia */
+    height: 250px; /* Manteniamo l'altezza fissa che desideri */
+    object-fit: cover; /* Taglia l'eccesso senza distorcere */
+    border-radius: 8px; /* Arrotonda gli angoli come nella tua foto */
+    border: 1px solid #dbe4f4; /* Aggiunge il bordo leggero che si vede nella foto d'esempio */
+    /* Rimosso: flex: 25%, max-width: 25%, padding: 0 4px; */
+}
