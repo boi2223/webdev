@@ -3,7 +3,19 @@
 
 body {
    margin: 0;
-   font-family: Comfortaa , Delius, 'Fira Sans', Tahoma, Geneva, Verdana, sans-serif;
+   font-family: Comfortaa, Delius, 'Fira Sans', Tahoma, Geneva, Verdana, sans-serif;
+   background-color: #FBEFEF;
+}
+
+.section,
+.card {
+   background-color: white;
+   max-width: 800px;
+   margin: 20px auto;
+   padding: 30px;
+   border-radius: 10px;
+   border: none;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 header {
@@ -31,7 +43,7 @@ a {
 }
 
 .card {
-   border: 1px solid black;
+   border: 1px solid #F7DEDE;
    border-radius: 10px;
    max-width: 60%;
    margin: 15px auto;
@@ -40,54 +52,131 @@ a {
 
 /* --- UPGRADED MEDIA STYLES: Images & "Cool" Videos --- */
 
-/* Updated Image Styling */
-img {
-   width: 100%; /* Forces all images to be the same width as the container */
-   height: auto;
-   border-radius: 8px; 
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-   display: block;
-   margin: 15px 0; /* Changed from 'auto' to '0' to ensure it aligns with left-sided text */
-   transition: transform 0.3s ease, box-shadow 0.3s ease; 
+/* 1. Make the section the Grid Container */
+#photos {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   /* 2 equal columns */
+   gap: 16px;
 }
 
-/* Image Hover Effect */
-img:hover {
-   transform: scale(1.03); /* Zooms in slightly when hovered */
-   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Deepens shadow on hover */
+/* 2. Tell the title and paragraph to span ALL columns */
+#photos h2,
+#photos p {
+   grid-column: 1 / -1;
+   /* This means "start at the first grid line and end at the last" */
+   margin-bottom: 5px;
+   /* Keeps them close together */
 }
 
-/* Cool Video & iframe (YouTube) Styling */
-video, iframe {
+/* 3. Reset Figure Defaults */
+#photos figure {
+   margin: 0;
+   /* Removes browser default margins */
+   display: flex;
+   flex-direction: column;
+}
+
+/* 4. Style the Images */
+#photos img {
    width: 100%;
-   max-width: 600px; /* Prevents them from getting ridiculously huge on big screens */
-   aspect-ratio: 16 / 9; /* Forces a perfect widescreen ratio */
-   border-radius: 12px; /* Smoother, rounder corners */
-   border: 3px solid rgb(246, 74, 234); /* Pink border to match your header */
-   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Heavier drop shadow */
+   height: 250px;
+   object-fit: cover;
+   border-radius: 8px;
+   border: 1px solid #dbe4f4;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
    display: block;
-   margin: 25px auto;
    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Video Hover Effect */
-video:hover, iframe:hover {
-   transform: translateY(-5px); /* Makes the video "float" up when hovered */
-   box-shadow: 0 12px 20px rgba(246, 74, 234, 0.4); /* Pink glowing shadow on hover */
+/* 5. Keep Your Hover Effect */
+#photos img:hover {
+   transform: scale(1.03);
+   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 6. Caption styling (optional) */
+#photos figcaption {
+   text-align: center;
+   margin-top: 8px;
+   font-size: 0.9em;
+   color: #555;
+}
+
+/* 1. Make the videos section the Grid Container */
+#videos {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   /* 2 equal columns */
+   gap: 16px;
+   /* Space between the videos */
+   margin-top: 20px;
+}
+
+/* 2. Tell the title and paragraph to span across both columns */
+#videos h2,
+#videos p {
+   grid-column: 1 / -1;
+   margin-bottom: 5px;
+}
+
+#videos iframe {
+   width: 100%;
+   height: 400px;
+   /* Put whatever number looks best to you here! (e.g., 300px, 450px) */
+   border-radius: 12px;
+   border: 3px solid rgb(246, 74, 234);
+   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+   display: block;
+   margin: 0;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 4. Keep your Video Hover Effect */
+#videos iframe:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 12px 20px rgba(246, 74, 234, 0.4);
 }
 
 /* Footer Styles */
 footer {
-   background-color: #0f2547; /* The dark navy blue background */
-   color: #ffffff;            /* White text for contrast */
-   text-align: center;        /* Centers the text horizontally */
-   padding: 20px 0;           /* Adds space above and below the text */
-   width: 100%;               /* Ensures it stretches across the whole area */
-   margin-top: 30px;          /* Adds some breathing room above the footer */
+   background-color: rgb(249, 219, 243);
+   color: black;
+   /* White text for contrast */
+   text-align: center;
+   /* Centers the text horizontally */
+   padding: 20px 0;
+   /* Adds space above and below the text */
+   width: 100%;
+   /* Ensures it stretches across the whole area */
+   margin-top: 30px;
+   /* Adds some breathing room above the footer */
 }
 
 /* Remove default paragraph margins inside the footer */
 footer p {
    margin: 0;
-   font-size: 0.9rem;         /* Makes the text slightly smaller */
+   font-size: 0.9rem;
+   /* Makes the text slightly smaller */
+}
+
+
+nav {
+   background-color: #ffffff;
+   border-bottom: 1px solid #f4dbe9;
+   width: 100%;
+   padding: 10px 0;
+   display: flex;
+   justify-content: center;
+}
+
+
+nav .nav-content {
+   width: 60%;
+   display: flex;
+   gap: 20px;
+}
+
+h2 {
+   color: rgb(246, 74, 234);
 }
